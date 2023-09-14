@@ -9,5 +9,10 @@ const { frontmatter } = Astro.props;
 		<li>Written by {frontmatter.author}</li>
 	</ul>
 	{frontmatter.image && <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />}
+	<ul class="flex flex-wrap">
+		{frontmatter.tags.map((tag) => (
+			<li class="m-1 border rounded-lg py-2 px-1 bg-blue-100"><a href={`/tags/${tag}`}>{tag}</a></li>
+		))}
+	</ul>
 	<slot />
 </BaseLayout>
